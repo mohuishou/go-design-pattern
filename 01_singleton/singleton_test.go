@@ -1,8 +1,9 @@
 package singleton_test
 
 import (
-	singleton "github.com/mohuishou/go-design-pattern/01_singleton"
 	"testing"
+
+	singleton "github.com/mohuishou/go-design-pattern/01_singleton"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -18,4 +19,3 @@ func BenchmarkGetInstanceParallel(b *testing.B) {
 		}
 	})
 }
-
