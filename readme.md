@@ -12,10 +12,14 @@ go 设计模式实现，包含 23 种常见的设计模式实现
 
 ### 常用
 
-- [单例模式(Singleton Design Pattern)](./01_singleton)
-  - 饿汉式
-  - 懒汉式(延迟加载)
-- 工厂模式
+- [单例模式(Singleton Design Pattern)](./01_singleton) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/singleton.html)
+  - [饿汉式](./01_singleton/singleton.go)
+  - [懒汉式(延迟加载)](./01_singleton/singleton_lazy.go)
+- [工厂模式(Factory)](./02_factory)
+  - [简单工厂](./02_factory/021_simple_factory)
+  - [工厂方法](./02_factory/022_factory_method)
+  - [抽象工厂(不常用)](./02_factory/023_abstract_factory)
+  - [DI 容器](./02_factory/024_di)
 - 建造者模式
 
 ### 不常用
