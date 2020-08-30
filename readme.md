@@ -20,7 +20,7 @@ go 设计模式实现，包含 23 种常见的设计模式实现
   - [工厂方法](./02_factory/022_factory_method)
   - [抽象工厂(不常用)](./02_factory/023_abstract_factory)
   - [DI 容器](./02_factory/024_di)
-- 建造者模式
+- [建造者模式](./03_builder) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/builder.html)
 
 ### 不常用
 
