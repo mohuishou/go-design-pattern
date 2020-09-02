@@ -12,7 +12,7 @@ type Keyword struct {
 	UpdatedAt *time.Time
 }
 
-// Clone 这里使用序列化与反序列化的方式省考配
+// Clone 这里使用序列化与反序列化的方式深拷贝
 func (k *Keyword) Clone() *Keyword {
 	var newKeyword Keyword
 	b, _ := json.Marshal(k)
