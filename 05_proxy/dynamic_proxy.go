@@ -51,7 +51,7 @@ func generate(file string) (string, error) {
 
 			// 获取方法的参数和返回值
 			method.Params, method.ParamNames = getParamsOrResults(fc.Params)
-			method.Results, _ = getParamsOrResults(fc.Results)
+			method.Results, method.ResultNames = getParamsOrResults(fc.Results)
 
 			data.Methods = append(data.Methods, method)
 		}
@@ -85,11 +85,15 @@ func getParamsOrResults(fields *ast.FieldList) (string, string) {
 		paramNames []string
 	)
 
-	for _, param := range fields.List {
+	for i, param := range fields.List {
 		// 循环获取所有的参数名
 		var names []string
 		for _, name := range param.Names {
 			names = append(names, name.Name)
+		}
+
+		if len(names) == 0 {
+			names = append(names, fmt.Sprintf("r%d", i))
 		}
 
 		paramNames = append(paramNames, names...)
@@ -125,19 +129,21 @@ type {{ .ProxyStructName }}Proxy struct {
 	child *{{ .ProxyStructName }}
 }
 
-func New{{ .ProxyStructName }}Proxy(child *{{ .ProxyStructName }}) {{ .ProxyStructName }}Proxy {
+func New{{ .ProxyStructName }}Proxy(child *{{ .ProxyStructName }}) *{{ .ProxyStructName }}Proxy {
 	return &{{ .ProxyStructName }}Proxy{child: child}
 }
 
 {{ range .Methods }}
-func (p *{{$.ProxyStructName}}) {{ .Name }} ({{ .Params }}) ({{ .Results }}) {
+func (p *{{$.ProxyStructName}}Proxy) {{ .Name }} ({{ .Params }}) ({{ .Results }}) {
 	// before 这里可能会有一些统计的逻辑
 	start := time.Now()
 
-	p.child.{{ .Name }}({{ .ParamNames }})
+	{{ .ResultNames }} = p.child.{{ .Name }}({{ .ParamNames }})
 
 	// after 这里可能也有一些监控统计的逻辑
 	log.Printf("user login cost time: %s", time.Now().Sub(start))
+
+	return {{ .ResultNames }}
 }
 {{ end }}
 `
@@ -161,4 +167,6 @@ type proxyMethod struct {
 	ParamNames string
 	// 返回值
 	Results string
+	// 返回值名
+	ResultNames string
 }
