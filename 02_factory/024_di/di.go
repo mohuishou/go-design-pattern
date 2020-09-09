@@ -132,7 +132,7 @@ func (c *Container) buildParam(param reflect.Type) (val reflect.Value, err error
 	for _, result := range results {
 		// 判断是否报错
 		if isError(result.Type()) && !result.IsNil() {
-			return reflect.Value{}, fmt.Errorf("%s call err: %+v", provider, result)
+			return reflect.Value{}, fmt.Errorf("%+v call err: %+v", provider, result)
 		}
 
 		if !isError(result.Type()) && !result.IsNil() {
