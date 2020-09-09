@@ -8,8 +8,8 @@ on:
 
 jobs:
 
-  build:
-    name: Build
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
 
@@ -27,4 +27,4 @@ jobs:
         go get -v -t -d ./...
 
     - name: Test
-      run: go test -v  -cover .
+      run: go test -v  -cover ./...
