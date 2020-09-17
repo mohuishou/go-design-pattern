@@ -37,7 +37,7 @@ go 设计模式实现，包含 23 种常见的设计模式实现
   - 动态代理(go generate 实现)
 - [桥接模式(Bridge Design Pattern)](./06_bridge) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/bridge.html)
 - [装饰器模式(Decorator)](./07_decorator) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/decorator.html)
-- 适配器模式
+- [适配器模式(Adapter)](./08_adapter) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/adapter.html)
 
 ### 不常用
 
