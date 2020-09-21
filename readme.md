@@ -43,7 +43,7 @@ go 设计模式实现，包含 23 种常见的设计模式实现
 
 - [门面模式(Facade Design Pattern)](./09_facade) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/facade.html)
 - [组合模式(Composite Design Pattern)](./10_composite) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/composite.html)
-- 享元模式
+- [享元模式(Flyweight Design Pattern)](./11_flyweight) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/flyweight.html)
 
 ## 行为型模式
 
