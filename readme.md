@@ -49,7 +49,9 @@ go 设计模式实现，包含 23 种常见的设计模式实现
 
 ### 常用
 
-- 观察者模式
+- [观察者模式(Observer Design Pattern)](./12_observer) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/observer.html)
+  - 观察者模式
+  - eventbus
 - 模板模式
 - 简略模式
 - 责任链模式
