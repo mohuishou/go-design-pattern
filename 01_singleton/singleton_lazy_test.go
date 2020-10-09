@@ -15,7 +15,9 @@ func TestGetLazyInstance(t *testing.T) {
 func BenchmarkGetLazyInstanceParallel(b *testing.B) {
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			assert.Equal(b, singleton.GetLazyInstance(), singleton.GetLazyInstance())
+			if singleton.GetLazyInstance() != singleton.GetLazyInstance() {
+				b.Errorf("test fail")
+			}
 		}
 	})
 }

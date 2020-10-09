@@ -15,7 +15,9 @@ func TestGetInstance(t *testing.T) {
 func BenchmarkGetInstanceParallel(b *testing.B) {
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			assert.Equal(b, singleton.GetInstance(), singleton.GetInstance())
+			if singleton.GetInstance() != singleton.GetInstance() {
+				b.Errorf("test fail")
+			}
 		}
 	})
 }
