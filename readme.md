@@ -56,7 +56,7 @@ go 设计模式实现，包含 23 种常见的设计模式实现
 - [策略模式(Strategy Method Design Pattern)](./14_strategy) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/strategy.html)
 - [职责链模式(Chain Of Responsibility Design Pattern)](./15_chain) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/chain.html)
 - [状态模式(State Design Pattern)](./16_state) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/state.html)
-- 迭代器模式
+- [迭代器模式(Iterator Design Pattern)](./17_iterator) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/iterator.html)
 
 ### 不常用
 
