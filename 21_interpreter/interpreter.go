@@ -46,7 +46,7 @@ func (g GreaterExpression) Interpret(stats map[string]float64) bool {
 	if !ok {
 		return false
 	}
-	return g.value > v
+	return v > g.value
 }
 
 // NewGreaterExpression NewGreaterExpression
@@ -79,7 +79,7 @@ func (g LessExpression) Interpret(stats map[string]float64) bool {
 	if !ok {
 		return false
 	}
-	return g.value < v
+	return v < g.value
 }
 
 // NewLessExpression NewLessExpression

@@ -35,7 +35,7 @@ func TestAlertRule_Interpret(t *testing.T) {
 			name:  "case3",
 			stats: stats,
 			rule:  "a < 5 && b > 1 && c < 10",
-			want:  false,
+			want:  true,
 		},
 	}
 	for _, tt := range tests {
