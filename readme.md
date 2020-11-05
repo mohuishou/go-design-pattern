@@ -1,67 +1,71 @@
 # go-design-pattern
 
-go 设计模式实现，包含 23 种常见的设计模式实现
+## 总结
 
-同时这也是 [极客时间-设计模式之美](https://time.geekbang.org/column/intro/250) 的笔记
+原本预计是在十月底更新完毕这个系列，到今天是11-05，晚了几天，不过也还好，这是第一次这么密集的去更新博客上的内容，更多的是以笔记的形式来呈现，加上这篇一共24篇文章差不多两个半月的时间，平均每周输出两篇，感觉还是不错。后续可能会视情况不定期的更新一些实战内容，也有可能没有。接下来下一个系列应该是数据结构与算法，包含对 Go 中一些底层数据和标准库包的学习，例如 slice, sort 等等。
 
-## Roadmap
+话说回来，回头再看学习设计模式我们究竟需要学习一些什么？
 
-持续更新中，预计一周更新 2 ~ 3 种设计模式，预计到 202010 月底前更新完成
+-   写 Go 需要使用到设计模式么？
+    -   需要，但是切记请勿使用其他语言的方式来写 Go
+    -   如果看过之前的一些文章，就会发现类似 JAVA 的这些面向对象语言中的某些设计模式的写法在 Go 中会十分的别扭
+    -   但是 Go 不需要设计模式么？不是的，设计模式的思想是想通的，并且我们一直都在使用，例如我们常见的对象创建方式 `NewXXX` 这其实就是一个简单工厂
+-   设计模式学习的重点是什么？
+    -   设计原则，以及设计模式的使用场景和优缺点，实现相对来说还没有那么重要
+    -   如果是常见的设计模式是武术招式，那么设计原则就是内功心法，没有内功心法那么招式套路也就是花架子
+    -   熟练掌握不同设计模式的使用场景可以帮助我们学会见招拆招，灵活应用而不是只会套路
+-   **最后设计模式不是银弹，不要拿着🔨就觉得哪里都像是钉子，不要过早优化，持续重构才是正道**
 
-## 创建型模式
+### 设计原则
 
-### 常用
+> 同时这也是 Code Review 的重要标准之一
 
-- [单例模式(Singleton Design Pattern)](./01_singleton) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/singleton.html)
-  - [饿汉式](./01_singleton/singleton.go)
-  - [懒汉式(延迟加载)](./01_singleton/singleton_lazy.go)
-- [工厂模式(Factory Design Pattern)](./02_factory) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/factory.html)
-  - [简单工厂](./02_factory/021_simple_factory)
-  - [工厂方法](./02_factory/022_factory_method)
-  - [抽象工厂(不常用)](./02_factory/023_abstract_factory)
-  - [DI 容器](./02_factory/024_di)
-- [建造者模式(Builder Design Pattern)](./03_builder) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/builder.html)
+<details>
+ <summary>点击展开设计原则</summary>
 
-### 不常用
+ ![设计原则](imgs/img01.jpg)
 
-- [原型模式(Prototype Design Pattern)](./04_prototype) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/prototype.html)
-  
-  不常用只是相对而言，在 js 当中十分普遍，在业务代码中其实也时常会用到这种思想
+</details>
 
-## 结构型模式
+### 设计模式
 
-### 常用
+<details>
+ <summary>点击展开设计模式</summary>
 
-- [代理模式(Proxy Design Pattern)](./05_proxy) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/proxy.html)
-  - 静态代理
-  - 动态代理(go generate 实现)
-- [桥接模式(Bridge Design Pattern)](./06_bridge) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/bridge.html)
-- [装饰器模式(Decorator Design Pattern)](./07_decorator) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/decorator.html)
-- [适配器模式(Adapter Design Pattern)](./08_adapter) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/adapter.html)
+ ![设计模式](imgs/img02.jpg)
 
-### 不常用
+</details>
 
-- [门面模式(Facade Design Pattern)](./09_facade) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/facade.html)
-- [组合模式(Composite Design Pattern)](./10_composite) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/composite.html)
-- [享元模式(Flyweight Design Pattern)](./11_flyweight) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/flyweight.html)
 
-## 行为型模式
 
-### 常用
+## Go设计模式
 
-- [观察者模式(Observer Design Pattern)](./12_observer) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/observer.html)
-  - 观察者模式
-  - eventbus
-- [模板模式(Template Method Design Pattern)](./13_template) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/template.html)
-- [策略模式(Strategy Method Design Pattern)](./14_strategy) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/strategy.html)
-- [职责链模式(Chain Of Responsibility Design Pattern)](./15_chain) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/chain.html)
-- [状态模式(State Design Pattern)](./16_state) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/state.html)
-- [迭代器模式(Iterator Design Pattern)](./17_iterator) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/iterator.html)
+-   单例模式包含饿汉式和懒汉式两种实现
+-   工厂模式包含简单工厂、工厂方法、抽象工厂、DI容器
+-   代理模式包含静态代理、动态代理（采用 go generate 模拟）
+-   观察者模式包含观察者模式、eventbus
 
-### 不常用
-
-- [访问者模式(Visitor Design Pattern)](./18_visitor/visitor.go) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/visitor.html)
-- [备忘录模式(Memento Design Pattern)](./19_memento) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/memento.html)
-- [命令模式(Command Design Pattern)](./20_command) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/command.html)
-- [解释器模式(Interpreter Design Pattern)](./21_interpreter) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/interpreter.html)
-- [中介模式(Mediator Design Pattern)](./22_mediator) [![](https://img.shields.io/badge/BLOG-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-success?style=flat&cacheSeconds=360000)](https://lailin.xyz/post/mediator.html)
+|  **类型**  |                                                  **设计模式（Github）**                                                   | **常用** |                                       **博客**                                        |
+| :--------: | :-----------------------------------------------------------------------------------------------------------------------: | :------: | :-----------------------------------------------------------------------------------: |
+| **创建型** |       [单例模式(Singleton Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/01_singleton)       |    ✅     |            [Go设计模式01-单例模式](https://lailin.xyz/post/singleton.html)            |
+|            |         [工厂模式(Factory Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/02_factory)         |    ✅     |         [Go设计模式02-工厂模式&DI容器](https://lailin.xyz/post/factory.html)          |
+|            |        [建造者模式(Builder Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/03_builder)        |    ✅     |            [Go设计模式03-建造者模式](https://lailin.xyz/post/builder.html)            |
+|            |       [原型模式(Prototype Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/04_prototype)       |    ❌     |            [Go设计模式04-原型模式](https://lailin.xyz/post/prototype.html)            |
+| **结构型** |           [代理模式(Proxy Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/05_proxy)           |    ✅     | [Go设计模式06-代理模式(generate实现类似动态代理)](https://lailin.xyz/post/proxy.html) |
+|            |          [桥接模式(Bridge Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/06_bridge)          |    ✅     |             [Go设计模式07-桥接模式](https://lailin.xyz/post/bridge.html)              |
+|            |      [装饰器模式(Decorator Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/07_decorator)      |    ✅     |           [Go设计模式08-装饰器模式](https://lailin.xyz/post/decorator.html)           |
+|            |        [适配器模式(Adapter Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/08_adapter)        |    ✅     |            [Go设计模式09-适配器模式](https://lailin.xyz/post/adapter.html)            |
+|            |          [门面模式(Facade Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/09_facade)          |    ❌     |             [Go设计模式10-门面模式](https://lailin.xyz/post/facade.html)              |
+|            |       [组合模式(Composite Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/10_composite)       |    ❌     |            [Go设计模式11-组合模式](https://lailin.xyz/post/composite.html)            |
+|            |       [享元模式(Flyweight Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/11_flyweight)       |    ❌     |            [Go设计模式12-享元模式](https://lailin.xyz/post/flyweight.html)            |
+| **行为型** |       [观察者模式(Observer Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/12_observer)       |    ✅     | [Go设计模式13-观察者模式(实现简单的EventBus)](https://lailin.xyz/post/observer.html)  |
+|            |    [模板模式(Template Method Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/13_template)     |    ✅     |            [Go模板模式14-模板模式](https://lailin.xyz/post/template.html)             |
+|            |    [策略模式(Strategy Method Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/14_strategy)     |    ✅     |            [Go设计模式15-策略模式](https://lailin.xyz/post/strategy.html)             |
+|            | [职责链模式(Chain Of Responsibility Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/15_chain) |    ✅     |    [Go设计模式16-职责链模式(Gin的中间件实现)](https://lailin.xyz/post/chain.html)     |
+|            |           [状态模式(State Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/16_state)           |    ✅     |              [Go设计模式17-状态模式](https://lailin.xyz/post/state.html)              |
+|            |       [迭代器模式(Iterator Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/17_iterator)       |    ✅     |           [Go设计模式18-迭代器模式](https://lailin.xyz/post/iterator.html)            |
+|            |  [访问者模式(Visitor Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/18_visitor/visitor.go)   |    ❌     |            [Go设计模式19-访问者模式](https://lailin.xyz/post/visitor.html)            |
+|            |        [备忘录模式(Memento Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/19_memento)        |    ❌     |            [Go设计模式20-备忘录模式](https://lailin.xyz/post/memento.html)            |
+|            |         [命令模式(Command Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/20_command)         |    ❌     |             [Go设计模式21-命令模式](https://lailin.xyz/post/command.html)             |
+|            |    [解释器模式(Interpreter Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/21_interpreter)    |    ❌     |          [Go设计模式22-解释器模式](https://lailin.xyz/post/interpreter.html)          |
+|            |        [中介模式(Mediator Design Pattern)](https://github.com/mohuishou/go-design-pattern/blob/master/22_mediator)        |    ❌     |            [Go设计模式23-中介模式](https://lailin.xyz/post/mediator.html)             |
