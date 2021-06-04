@@ -4,28 +4,28 @@ import "fmt"
 
 // ISubject subject
 type ISubject interface {
-	Register(observer IObsever)
-	Remove(observer IObsever)
-	Notify(observer IObsever)
+	Register(observer IObserver)
+	Remove(observer IObserver)
+	Notify(msg string)
 }
 
-// IObsever 观察者
-type IObsever interface {
+// IObserver 观察者
+type IObserver interface {
 	Update(msg string)
 }
 
 // Subject Subject
 type Subject struct {
-	observers []IObsever
+	observers []IObserver
 }
 
 // Register 注册
-func (sub *Subject) Register(observer IObsever) {
+func (sub *Subject) Register(observer IObserver) {
 	sub.observers = append(sub.observers, observer)
 }
 
 // Remove 移除观察者
-func (sub *Subject) Remove(observer IObsever) {
+func (sub *Subject) Remove(observer IObserver) {
 	for i, ob := range sub.observers {
 		if ob == observer {
 			sub.observers = append(sub.observers[:i], sub.observers[i+1:]...)
@@ -40,18 +40,18 @@ func (sub *Subject) Notify(msg string) {
 	}
 }
 
-// Obsever1 Obsever1
-type Obsever1 struct{}
+// Observer1 Observer1
+type Observer1 struct{}
 
 // Update 实现观察者接口
-func (Obsever1) Update(msg string) {
-	fmt.Printf("Obsever1: %s", msg)
+func (Observer1) Update(msg string) {
+	fmt.Printf("Observer1: %s", msg)
 }
 
-// Obsever2 Obsever2
-type Obsever2 struct{}
+// Observer2 Observer2
+type Observer2 struct{}
 
 // Update 实现观察者接口
-func (Obsever2) Update(msg string) {
-	fmt.Printf("Obsever2: %s", msg)
+func (Observer2) Update(msg string) {
+	fmt.Printf("Observer2: %s", msg)
 }
