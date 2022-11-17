@@ -126,6 +126,9 @@ func (c *Container) buildParam(param reflect.Type) (val reflect.Value, err error
 	params := make([]reflect.Value, len(provider.params))
 	for i, p := range provider.params {
 		params[i], err = c.buildParam(p)
+		if err != nil {
+			return err
+		}
 	}
 
 	results := provider.value.Call(params)
