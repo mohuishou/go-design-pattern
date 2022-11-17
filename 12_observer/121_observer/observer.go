@@ -26,9 +26,10 @@ func (sub *Subject) Register(observer IObserver) {
 
 // Remove 移除观察者
 func (sub *Subject) Remove(observer IObserver) {
-	for i, ob := range sub.observers {
-		if ob == observer {
+	for i := 0; i < len(sub.observers); i++ {
+		if sub.observers[i] == observer {
 			sub.observers = append(sub.observers[:i], sub.observers[i+1:]...)
+			i--
 		}
 	}
 }
