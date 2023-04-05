@@ -11,7 +11,9 @@ var (
 func GetLazyInstance() *Singleton {
 	if lazySingleton == nil {
 		once.Do(func() {
-			lazySingleton = &Singleton{}
+			if lazySingleton == nil {
+				lazySingleton = &Singleton{}
+			}
 		})
 	}
 	return lazySingleton
