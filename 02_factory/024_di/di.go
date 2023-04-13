@@ -127,7 +127,7 @@ func (c *Container) buildParam(param reflect.Type) (val reflect.Value, err error
 	for i, p := range provider.params {
 		params[i], err = c.buildParam(p)
 		if err != nil {
-			return err
+			return
 		}
 	}
 
