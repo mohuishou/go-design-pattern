@@ -9,7 +9,8 @@ import (
 )
 
 func TestGetInstance(t *testing.T) {
-	assert.Equal(t, singleton.GetInstance(), singleton.GetInstance())
+	assert.True(t, singleton.GetInstance() == singleton.GetInstance())
+	assert.False(t, singleton.GetInstance() == singleton.GetLazyInstance())
 }
 
 func BenchmarkGetInstanceParallel(b *testing.B) {
