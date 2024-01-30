@@ -9,10 +9,6 @@ var (
 
 // GetLazyInstance 懒汉式
 func GetLazyInstance() *Singleton {
-	if lazySingleton != nil {
-		return lazySingleton
-	}
-
 	// once 内的方法只会执行一次，所以不需要再次判断
 	once.Do(func() {
 		lazySingleton = &Singleton{a: "test"}
