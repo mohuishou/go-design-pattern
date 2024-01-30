@@ -18,6 +18,7 @@ type ResourcePoolConfig struct {
 
 // ResourcePoolConfigBuilder 用于构建 ResourcePoolConfig
 type ResourcePoolConfigBuilder struct {
+	err      error
 	name     string
 	maxTotal int
 	maxIdle  int
@@ -25,43 +26,55 @@ type ResourcePoolConfigBuilder struct {
 }
 
 // SetName SetName
-func (b *ResourcePoolConfigBuilder) SetName(name string) error {
+func (b *ResourcePoolConfigBuilder) SetName(name string) {
+	if b.err != nil {
+		return
+	}
 	if name == "" {
-		return fmt.Errorf("name can not be empty")
+		b.err = fmt.Errorf("name can not be empty")
 	}
 	b.name = name
-	return nil
 }
 
 // SetMinIdle SetMinIdle
-func (b *ResourcePoolConfigBuilder) SetMinIdle(minIdle int) error {
+func (b *ResourcePoolConfigBuilder) SetMinIdle(minIdle int) {
+	if b.err != nil {
+		return
+	}
 	if minIdle < 0 {
-		return fmt.Errorf("max tatal cannot < 0, input: %d", minIdle)
+		b.err = fmt.Errorf("max tatal cannot < 0, input: %d", minIdle)
 	}
 	b.minIdle = minIdle
-	return nil
 }
 
 // SetMaxIdle SetMaxIdle
-func (b *ResourcePoolConfigBuilder) SetMaxIdle(maxIdle int) error {
+func (b *ResourcePoolConfigBuilder) SetMaxIdle(maxIdle int) {
+	if b.err != nil {
+		return
+	}
 	if maxIdle < 0 {
-		return fmt.Errorf("max tatal cannot < 0, input: %d", maxIdle)
+		b.err = fmt.Errorf("max tatal cannot < 0, input: %d", maxIdle)
 	}
 	b.maxIdle = maxIdle
-	return nil
 }
 
 // SetMaxTotal SetMaxTotal
-func (b *ResourcePoolConfigBuilder) SetMaxTotal(maxTotal int) error {
+func (b *ResourcePoolConfigBuilder) SetMaxTotal(maxTotal int) {
+	if b.err != nil {
+		return
+	}
 	if maxTotal <= 0 {
-		return fmt.Errorf("max tatal cannot <= 0, input: %d", maxTotal)
+		b.err = fmt.Errorf("max tatal cannot <= 0, input: %d", maxTotal)
 	}
 	b.maxTotal = maxTotal
-	return nil
 }
 
 // Build Build
 func (b *ResourcePoolConfigBuilder) Build() (*ResourcePoolConfig, error) {
+	if b.err != nil {
+		return nil, b.err
+	}
+
 	if b.name == "" {
 		return nil, fmt.Errorf("name can not be empty")
 	}
